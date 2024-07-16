@@ -1,6 +1,4 @@
 #!/bin/bash
-
-# 下载并执行远程脚本
 expect -c '
 spawn bash <(curl -fsSLk https://raw.githubusercontent.com/bulianglin/demo/main/xrayL.sh) socks
 expect "Please enter the code:"
