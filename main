@@ -1,11 +1,22 @@
-#!/bin/bash
-expect -c '
-spawn bash <(curl -fsSLk https://raw.githubusercontent.com/bulianglin/demo/main/xrayL.sh) socks
+#!/usr/bin/expect -f
+
+# 设置超时时间（可根据需要调整）
+set timeout 300
+
+# 启动脚本
+spawn bash -c {curl -fsSLk https://raw.githubusercontent.com/bulianglin/demo/main/xrayL.sh | bash -s socks}
+
+# 等待并输入第一个代码
 expect "Please enter the code:"
 send "33546\r"
+
+# 等待并输入第二个代码
 expect "Please enter the second code:"
 send "kkzhao2s\r"
+
+# 等待并输入第三个代码
 expect "Please enter the third code:"
 send "kdhfysf\r"
-interact
-'
+
+# 等待脚本结束
+expect eof
